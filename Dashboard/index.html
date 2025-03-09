@@ -32,10 +32,10 @@
             <a class="nav-link active" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About US</a>
+            <a class="nav-link" href="#about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#stories">Travel Stories</a>
+            <a class="nav-link" href="travel_stories">Travel Stories</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#trip">Plan Your Trip</a>
@@ -50,7 +50,11 @@
   </nav>
 
 <!-- Header Section -->
-<header class="bg-dark text-white text-center py-5"  style="height: 60em; background-image: url('/Dashboard/hero-bg2.png'); background-size: cover; background-position: center; position: relative;" id="home">
+<header class="bg-dark text-white text-center py-5"  
+  style="height: 60em; background-image: url('{{ url_for('static', filename='hero-bg2.png') }}'); 
+  background-size: cover; background-position: center; position: relative;" 
+  id="home">
+
     <div style="background: rgba(0, 0, 0, 0); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
     <div class="container position-relative " style="z-index: 1; margin-top: 14em;">
       <h1 class="my-3">Your gateway to unforgettable travel experiences</h1>
@@ -124,26 +128,26 @@
         <!-- Left Side: Image Covering Half the Viewport -->
         <div class="col-md-6">
           <div class="h-100">
-            <img src="/Dashboard/world_map.png" alt="Map" class="img-fluid h-100 w-100 object-fit-cover rounded">
+            <img src="{{ url_for('static', filename='world_map.png') }}" alt="Map" class="img-fluid h-100 w-100 object-fit-cover rounded">
           </div>
         </div>
         
         <!-- Right Side: Flowchart-->
         <div class="col-md-6 d-flex flex-column justify-content-center gap-4">
           <div class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover" style="height: 150px;">
-            <img src="/Dashboard/Carousel.png" alt="Icon"  class="img-fluid h-100 me-3 rounded">
+            <img src="{{ url_for('static', filename='Carousel.png') }}" alt="Icon"  class="img-fluid h-100 me-3 rounded">
             <h5 class="mb-0">Get Inspired</h5>
           </div>
           <div class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover" style="height: 150px;">
-            <img src="/Dashboard/Carousel.png" alt="Icon" class="img-fluid h-100 me-3 rounded">
+            <img src="{{ url_for('static', filename='Carousel.png') }}" alt="Icon" class="img-fluid h-100 me-3 rounded">
             <h5 class="mb-0">Plan Your Trip</h5>
           </div>
           <div class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover" style="height: 150px;">
-            <img src="/Dashboard/Carousel.png" alt="Icon" class="img-fluid h-100 me-3 rounded">
+            <img src="{{ url_for('static', filename='Carousel.png') }}" alt="Icon" class="img-fluid h-100 me-3 rounded">
             <h5 class="mb-0">Travel Tips & Insights</h5>
           </div>
           <div class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover" style="height: 150px;">
-            <img src="/Dashboard/Carousel.png" alt="Icon" class="img-fluid h-100 me-3 rounded">
+            <img src="{{ url_for('static', filename='Carousel.png') }}" alt="Icon" class="img-fluid h-100 me-3 rounded">
             <h5 class="mb-0">Share with Us & Earn Points!</h5>
           </div>
         </div>
@@ -162,17 +166,17 @@
           <div class="carousel-item active">
             <div class="row">
               <div class="col-md-4">
-                <img src="/Dashboard/Carousel.png" class="d-block w-100 rounded" alt="Cultural Image 1">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="d-block w-100 rounded" alt="Cultural Image 1">
                 <h5 class="mt-2">Culture of Destination 1</h5>
                 <p>Experience the rich traditions of this place.</p>
               </div>
               <div class="col-md-4">
-                <img src="/Dashboard/Carousel.png" class="d-block w-100 rounded" alt="Cultural Image 2">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="d-block w-100 rounded" alt="Cultural Image 2">
                 <h5 class="mt-2">Culture of Destination 2</h5>
                 <p>Dive into the vibrant local culture.</p>
               </div>
               <div class="col-md-4">
-                <img src="/Dashboard/Carousel.png" class="d-block w-100 rounded" alt="Cultural Image 3">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="d-block w-100 rounded" alt="Cultural Image 3">
                 <h5 class="mt-2">Culture of Destination 3</h5>
                 <p>Discover unique traditions and practices.</p>
               </div>
@@ -182,17 +186,17 @@
           <div class="carousel-item">
             <div class="row">
               <div class="col-md-4">
-                <img src="/Dashboard/Carousel.png" class="d-block w-100 rounded" alt="Cultural Image 4">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="d-block w-100 rounded" alt="Cultural Image 4">
                 <h5 class="mt-2">Culture of Destination 4</h5>
                 <p>Explore the hidden gems of this culture.</p>
               </div>
               <div class="col-md-4">
-                <img src="/Dashboard/Carousel.png" class="d-block w-100 rounded" alt="Cultural Image 5">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="d-block w-100 rounded" alt="Cultural Image 5">
                 <h5 class="mt-2">Culture of Destination 5</h5>
                 <p>Uncover the stories of the past.</p>
               </div>
               <div class="col-md-4">
-                <img src="/Dashboard/Carousel.png" class="d-block w-100 rounded" alt="Cultural Image 6">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="d-block w-100 rounded" alt="Cultural Image 6">
                 <h5 class="mt-2">Culture of Destination 6</h5>
                 <p>Immerse yourself in the lifestyle here.</p>
               </div>

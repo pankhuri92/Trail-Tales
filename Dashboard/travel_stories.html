@@ -9,21 +9,21 @@
 
   <style>
     .card-body {
-      text-align: center; /* Center align content */
+      text-align: center; 
     }
 
     .card-title, .card-text {
-      color: black; /* Change text color to black */
-      font-family: 'Georgia', serif; /* Stylish font */
+      color: black; 
+      font-family: 'Georgia', serif;
     }
 
     .btn-primary {
-      background-color: teal; /* Change button color to teal */
+      background-color: teal;
       border-color: teal;
     }
 
     .btn-primary:hover {
-      background-color: #005f5f; /* Darker teal on hover */
+      background-color: #005f5f; 
       border-color: #005f5f;
     }
   </style>
@@ -99,9 +99,7 @@
     </div>
   </div>
 
-
-  <!-- Tab Content -->
-  <div class="tab-content mt-4 container">
+<div class="tab-content mt-4 container">
   <!-- Overview Tab -->
   <div class="tab-pane fade show active" id="overview" role="tabpanel">
     <!-- Recent Posts Section -->
@@ -112,7 +110,7 @@
         <div class="col-md-4">
             <a href="post1.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 1">
                 <div class="card-body">
                 <h5 class="card-title">Post Title 1</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -125,7 +123,7 @@
         <div class="col-md-4">
             <a href="post2.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 2">
                 <div class="card-body">
                 <h5 class="card-title">Post Title 2</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -138,7 +136,7 @@
         <div class="col-md-4">
             <a href="post3.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 3">
                 <div class="card-body">
                 <h5 class="card-title">Post Title 3</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -150,52 +148,26 @@
         </div>
     </section>
     
-    <!-- Blogs-Overview -->
+    <!-- Blogs Section Overview -->
     <section class="container mt-5 py-3">
         <h2 class="text-center mb-4">Blogs</h2>
         <div class="row g-4">
-        <!-- Post 1 -->
-        <div class="col-md-4">
-            <a href="post1.html" class="text-decoration-none">
-            <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
-                <div class="card-body">
-                <h5 class="card-title">Post Title 1</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post1.html" class="btn btn-primary">View More</a>
-                </div>
-            </div>
-            </a>
+          {% for blog in blogs %}
+          <div class="col-md-4">
+              <a href="{{ url_for('view_blog', blog_id=blog.id) }}" class="text-decoration-none">
+                  <div class="card">
+                      <img src="{{ blog.image_url }}" class="card-img-top" alt="{{ blog.title }}">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ blog.title }}</h5>
+                          <p class="card-text">{{ blog.content[:100] }}...</p> <!-- Brief preview -->
+                          <a href="{{ url_for('view_blog', blog_id=blog.id) }}" class="btn btn-primary">View More</a>
+                      </div>
+                  </div>
+              </a>
+          </div>
+          {% endfor %}
         </div>
-        <!-- Post 2 -->
-        <div class="col-md-4">
-            <a href="post2.html" class="text-decoration-none">
-            <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
-                <div class="card-body">
-                <h5 class="card-title">Post Title 2</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post2.html" class="btn btn-primary">View More</a>
-                </div>
-            </div>
-            </a>
-        </div>
-        <!-- Post 3 -->
-        <div class="col-md-4">
-            <a href="post3.html" class="text-decoration-none">
-            <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
-                <div class="card-body">
-                <h5 class="card-title">Post Title 3</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post3.html" class="btn btn-primary">View More</a>
-                </div>
-            </div>
-            </a>
-        </div>
-        </div>
-    </section>
-    
+    </section>    
 
     <!-- Picture Section Overview-->
     <section class="container mt-5 py-3">
@@ -205,7 +177,7 @@
         <div class="col-md-4">
             <a href="post1.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 1">
                 <div class="card-body">
                 <h5 class="card-title">Post Title 1</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -218,7 +190,7 @@
         <div class="col-md-4">
             <a href="post2.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 2">
                 <div class="card-body">
                 <h5 class="card-title">Post Title 2</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -231,7 +203,7 @@
         <div class="col-md-4">
             <a href="post3.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
+                <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 3">
                 <div class="card-body">
                 <h5 class="card-title">Post Title 3</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -251,7 +223,7 @@
         <div class="col-md-4">
             <a href="post1.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
                 <div class="card-body">
                 <h5 class="card-title">Post Title 1</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -264,7 +236,7 @@
         <div class="col-md-4">
             <a href="post2.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
                 <div class="card-body">
                 <h5 class="card-title">Post Title 2</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -277,7 +249,7 @@
         <div class="col-md-4">
             <a href="post3.html" class="text-decoration-none">
             <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
                 <div class="card-body">
                 <h5 class="card-title">Post Title 3</h5>
                 <p class="card-text">A brief preview of the post content</p>
@@ -291,272 +263,171 @@
 
     <!-- Podcast Section Overview-->
     <section class="container mt-5 py-3">
-        <h2 class="text-center mb-4">Podcasts</h2>
-        <div class="row g-4">
-        <!-- Post 1 -->
-        <div class="col-md-4">
-            <a href="post1.html" class="text-decoration-none">
-            <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
-                <div class="card-body">
-                <h5 class="card-title">Post Title 1</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post1.html" class="btn btn-primary">View More</a>
-                </div>
-            </div>
-            </a>
-        </div>
-        <!-- Post 2 -->
-        <div class="col-md-4">
-            <a href="post2.html" class="text-decoration-none">
-            <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
-                <div class="card-body">
-                <h5 class="card-title">Post Title 2</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post2.html" class="btn btn-primary">View More</a>
-                </div>
-            </div>
-            </a>
-        </div>
-        <!-- Post 3 -->
-        <div class="col-md-4">
-            <a href="post3.html" class="text-decoration-none">
-            <div class="card">
-                <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
-                <div class="card-body">
-                <h5 class="card-title">Post Title 3</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post3.html" class="btn btn-primary">View More</a>
-                </div>
-            </div>
-            </a>
-        </div>
-        </div>
-    </section>
-  </div>
-
-    <!-- Blogs Tab -->
-    <div class="tab-pane fade" id="blogs" role="tabpanel">
-        <section class="container mt-5 py-3">
-            <h2 class="text-center mb-4">Blogs</h2>
-            <div class="row g-4 py-5">
-              <!-- Post 1 -->
-              <div class="col-md-4">
-                <a href="post1.html" class="text-decoration-none">
-                  <div class="card">
-                    <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
-                    <div class="card-body">
-                      <h5 class="card-title">Post Title 1</h5>
-                      <p class="card-text">A brief preview of the post content</p>
-                      <a href="post1.html" class="btn btn-primary">View More</a>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <!-- Post 2 -->
-              <div class="col-md-4">
-                <a href="post2.html" class="text-decoration-none">
-                  <div class="card">
-                    <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
-                    <div class="card-body">
-                      <h5 class="card-title">Post Title 2</h5>
-                      <p class="card-text">A brief preview of the post content</p>
-                      <a href="post2.html" class="btn btn-primary">View More</a>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <!-- Post 3 -->
-              <div class="col-md-4">
-                <a href="post3.html" class="text-decoration-none">
-                  <div class="card">
-                    <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
-                    <div class="card-body">
-                      <h5 class="card-title">Post Title 3</h5>
-                      <p class="card-text">A brief preview of the post content</p>
-                      <a href="post3.html" class="btn btn-primary">View More</a>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="row g-4 py-5">
-                <!-- Post 1 -->
-                <div class="col-md-4">
-                  <a href="post1.html" class="text-decoration-none">
-                    <div class="card">
-                      <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
-                      <div class="card-body">
-                        <h5 class="card-title">Post Title 1</h5>
-                        <p class="card-text">A brief preview of the post content</p>
-                        <a href="post1.html" class="btn btn-primary">View More</a>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- Post 2 -->
-                <div class="col-md-4">
-                  <a href="post2.html" class="text-decoration-none">
-                    <div class="card">
-                      <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
-                      <div class="card-body">
-                        <h5 class="card-title">Post Title 2</h5>
-                        <p class="card-text">A brief preview of the post content</p>
-                        <a href="post2.html" class="btn btn-primary">View More</a>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- Post 3 -->
-                <div class="col-md-4">
-                  <a href="post3.html" class="text-decoration-none">
-                    <div class="card">
-                      <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
-                      <div class="card-body">
-                        <h5 class="card-title">Post Title 3</h5>
-                        <p class="card-text">A brief preview of the post content</p>
-                        <a href="post3.html" class="btn btn-primary">View More</a>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-        </section>
-    </div>
-
-    <!-- Photos Tab -->
-    <div class="tab-pane fade" id="photos" role="tabpanel">
-        <section class="container mt-5 py-3">
-            <h2 class="text-center mb-4">Photography</h2>
-            <div class="row g-4 py-4">
-              <!-- Post 1 -->
-              <div class="col-md-4">
-                <a href="post1.html" class="text-decoration-none">
-                  <div class="card">
-                    <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
-                    <div class="card-body">
-                      <h5 class="card-title">Post Title 1</h5>
-                      <p class="card-text">A brief preview of the post content</p>
-                      <a href="post1.html" class="btn btn-primary">View More</a>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <!-- Post 2 -->
-              <div class="col-md-4">
-                <a href="post2.html" class="text-decoration-none">
-                  <div class="card">
-                    <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
-                    <div class="card-body">
-                      <h5 class="card-title">Post Title 2</h5>
-                      <p class="card-text">A brief preview of the post content</p>
-                      <a href="post2.html" class="btn btn-primary">View More</a>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <!-- Post 3 -->
-              <div class="col-md-4">
-                <a href="post3.html" class="text-decoration-none">
-                  <div class="card">
-                    <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
-                    <div class="card-body">
-                      <h5 class="card-title">Post Title 3</h5>
-                      <p class="card-text">A brief preview of the post content</p>
-                      <a href="post3.html" class="btn btn-primary">View More</a>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="row g-4 py-4">
-                <!-- Post 1 -->
-                <div class="col-md-4">
-                  <a href="post1.html" class="text-decoration-none">
-                    <div class="card">
-                      <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 1">
-                      <div class="card-body">
-                        <h5 class="card-title">Post Title 1</h5>
-                        <p class="card-text">A brief preview of the post content</p>
-                        <a href="post1.html" class="btn btn-primary">View More</a>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- Post 2 -->
-                <div class="col-md-4">
-                  <a href="post2.html" class="text-decoration-none">
-                    <div class="card">
-                      <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 2">
-                      <div class="card-body">
-                        <h5 class="card-title">Post Title 2</h5>
-                        <p class="card-text">A brief preview of the post content</p>
-                        <a href="post2.html" class="btn btn-primary">View More</a>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- Post 3 -->
-                <div class="col-md-4">
-                  <a href="post3.html" class="text-decoration-none">
-                    <div class="card">
-                      <img src="/Dashboard/Carousel.png" class="card-img-top" alt="Post 3">
-                      <div class="card-body">
-                        <h5 class="card-title">Post Title 3</h5>
-                        <p class="card-text">A brief preview of the post content</p>
-                        <a href="post3.html" class="btn btn-primary">View More</a>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-        </section>
-    </div>
-
-    <!-- Videos Tab -->
-    <div class="tab-pane fade" id="videos" role="tabpanel">
-    <h2 class="text-center mb-4">Vlogs & Videos</h2>
-     <div class="row g-4 py-5">
+      <h2 class="text-center mb-4">Podcasts</h2>
+      <div class="row g-4">
       <!-- Post 1 -->
       <div class="col-md-4">
-        <a href="post1.html" class="text-decoration-none">
-          <div class="card">
-            <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
-            <div class="card-body">
-              <h5 class="card-title">Post Title 1</h5>
-              <p class="card-text">A brief preview of the post content</p>
-              <a href="post1.html" class="btn btn-primary">View More</a>
-            </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <audio controls class="w-100">
+              <source src="https://via.placeholder.com/podcast1.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <h5 class="card-title mt-3">Podcast 1</h5>
+            <p class="card-text">A brief preview of the post content</p>
+            <a href="post1.html" class="btn btn-primary">View More</a>
           </div>
-        </a>
+        </div>
       </div>
       <!-- Post 2 -->
       <div class="col-md-4">
-        <a href="post2.html" class="text-decoration-none">
-          <div class="card">
-            <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>            <div class="card-body">
-              <h5 class="card-title">Post Title 2</h5>
-              <p class="card-text">A brief preview of the post content</p>
-              <a href="post2.html" class="btn btn-primary">View More</a>
-            </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <audio controls class="w-100">
+              <source src="https://via.placeholder.com/podcast2.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <h5 class="card-title mt-3">Podcast 2</h5>
+            <p class="card-text">A brief preview of the post content</p>
+            <a href="post1.html" class="btn btn-primary">View More</a>
           </div>
-        </a>
+        </div>
       </div>
       <!-- Post 3 -->
       <div class="col-md-4">
-        <a href="post3.html" class="text-decoration-none">
-          <div class="card">
-            <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>            <div class="card-body">
-              <h5 class="card-title">Post Title 3</h5>
-              <p class="card-text">A brief preview of the post content</p>
-              <a href="post3.html" class="btn btn-primary">View More</a>
-            </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <audio controls class="w-100">
+              <source src="https://via.placeholder.com/podcast3.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <h5 class="card-title mt-3">Podcast 3</h5>
+            <p class="card-text">A brief preview of the post content</p>
+            <a href="post1.html" class="btn btn-primary">View More</a>
           </div>
-        </a>
+        </div>
       </div>
-     </div>
-     <div class="row g-4 py-5">
+      </div>
+     </section>
+  </div>
+
+    <!-- Blogs Tab -->
+  <div class="tab-pane fade show" id="blogs" role="tabpanel">
+    <section class="container mt-5 py-3">
+      <h2 class="text-center mb-4">Blogs</h2>
+      <div class="row g-4">
+        {% for blog in blogs %}
+        <div class="col-md-4">
+            <a href="{{ url_for('view_blog', blog_id=blog.id) }}" class="text-decoration-none">
+                <div class="card">
+                    <img src="{{ blog.image_url }}" class="card-img-top" alt="{{ blog.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ blog.title }}</h5>
+                        <p class="card-text">{{ blog.content[:100] }}...</p> <!-- Brief preview -->
+                        <a href="{{ url_for('view_blog', blog_id=blog.id) }}" class="btn btn-primary">View More</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <!-- Photos Tab -->
+  <div class="tab-pane fade show" id="photos" role="tabpanel">
+      <div class="tab-pane fade" id="photos" role="tabpanel">
+          <section class="container mt-5 py-3">
+              <h2 class="text-center mb-4">Photography</h2>
+              <div class="row g-4 py-4">
+                <!-- Post 1 -->
+                <div class="col-md-4">
+                  <a href="post1.html" class="text-decoration-none">
+                    <div class="card">
+                      <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 1">
+                      <div class="card-body">
+                        <h5 class="card-title">Post Title 1</h5>
+                        <p class="card-text">A brief preview of the post content</p>
+                        <a href="post1.html" class="btn btn-primary">View More</a>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Post 2 -->
+                <div class="col-md-4">
+                  <a href="post2.html" class="text-decoration-none">
+                    <div class="card">
+                      <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 2">
+                      <div class="card-body">
+                        <h5 class="card-title">Post Title 2</h5>
+                        <p class="card-text">A brief preview of the post content</p>
+                        <a href="post2.html" class="btn btn-primary">View More</a>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Post 3 -->
+                <div class="col-md-4">
+                  <a href="post3.html" class="text-decoration-none">
+                    <div class="card">
+                      <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 3">
+                      <div class="card-body">
+                        <h5 class="card-title">Post Title 3</h5>
+                        <p class="card-text">A brief preview of the post content</p>
+                        <a href="post3.html" class="btn btn-primary">View More</a>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="row g-4 py-4">
+                  <!-- Post 1 -->
+                  <div class="col-md-4">
+                    <a href="post1.html" class="text-decoration-none">
+                      <div class="card">
+                        <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 1">
+                        <div class="card-body">
+                          <h5 class="card-title">Post Title 1</h5>
+                          <p class="card-text">A brief preview of the post content</p>
+                          <a href="post1.html" class="btn btn-primary">View More</a>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <!-- Post 2 -->
+                  <div class="col-md-4">
+                    <a href="post2.html" class="text-decoration-none">
+                      <div class="card">
+                        <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 2">
+                        <div class="card-body">
+                          <h5 class="card-title">Post Title 2</h5>
+                          <p class="card-text">A brief preview of the post content</p>
+                          <a href="post2.html" class="btn btn-primary">View More</a>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <!-- Post 3 -->
+                  <div class="col-md-4">
+                    <a href="post3.html" class="text-decoration-none">
+                      <div class="card">
+                        <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 3">
+                        <div class="card-body">
+                          <h5 class="card-title">Post Title 3</h5>
+                          <p class="card-text">A brief preview of the post content</p>
+                          <a href="post3.html" class="btn btn-primary">View More</a>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+          </section>
+      </div>
+
+  <!-- Videos Tab -->
+      <div class="tab-pane fade" id="videos" role="tabpanel">
+      <h2 class="text-center mb-4">Vlogs & Videos</h2>
+      <div class="row g-4 py-5">
         <!-- Post 1 -->
         <div class="col-md-4">
           <a href="post1.html" class="text-decoration-none">
@@ -594,54 +465,52 @@
             </div>
           </a>
         </div>
-       </div>
-    </div>
-
-    <!-- Podcasts Tab -->
-    <div class="tab-pane fade" id="podcasts" role="tabpanel">
-        <h2 class="text-center mb-4">Podcasts</h2>
-        <div class="row py-4">
+      </div>
+      <div class="row g-4 py-5">
+          <!-- Post 1 -->
           <div class="col-md-4">
-            <div class="card text-center">
-              <div class="card-body">
-                <audio controls class="w-100">
-                  <source src="https://via.placeholder.com/podcast1.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-                <h5 class="card-title mt-3">Podcast 1</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post1.html" class="btn btn-primary">View More</a>
+            <a href="post1.html" class="text-decoration-none">
+              <div class="card">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">Post Title 1</h5>
+                  <p class="card-text">A brief preview of the post content</p>
+                  <a href="post1.html" class="btn btn-primary">View More</a>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
+          <!-- Post 2 -->
           <div class="col-md-4">
-            <div class="card text-center">
-              <div class="card-body">
-                <audio controls class="w-100">
-                  <source src="https://via.placeholder.com/podcast2.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-                <h5 class="card-title mt-3">Podcast 2</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post1.html" class="btn btn-primary">View More</a>
+            <a href="post2.html" class="text-decoration-none">
+              <div class="card">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>            <div class="card-body">
+                  <h5 class="card-title">Post Title 2</h5>
+                  <p class="card-text">A brief preview of the post content</p>
+                  <a href="post2.html" class="btn btn-primary">View More</a>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
+          <!-- Post 3 -->
           <div class="col-md-4">
-            <div class="card text-center">
-              <div class="card-body">
-                <audio controls class="w-100">
-                  <source src="https://via.placeholder.com/podcast3.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-                <h5 class="card-title mt-3">Podcast 3</h5>
-                <p class="card-text">A brief preview of the post content</p>
-                <a href="post1.html" class="btn btn-primary">View More</a>
+            <a href="post3.html" class="text-decoration-none">
+              <div class="card">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>            <div class="card-body">
+                  <h5 class="card-title">Post Title 3</h5>
+                  <p class="card-text">A brief preview of the post content</p>
+                  <a href="post3.html" class="btn btn-primary">View More</a>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
-        <div class="row py-4">
+      </div>
+
+  <!-- Podcasts Tab -->
+      <div class="tab-pane fade" id="podcasts" role="tabpanel">
+          <h2 class="text-center mb-4">Podcasts</h2>
+          <div class="row py-4">
             <div class="col-md-4">
               <div class="card text-center">
                 <div class="card-body">
@@ -682,12 +551,154 @@
               </div>
             </div>
           </div>
+          <div class="row py-4">
+              <div class="col-md-4">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <audio controls class="w-100">
+                      <source src="https://via.placeholder.com/podcast1.mp3" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio>
+                    <h5 class="card-title mt-3">Podcast 1</h5>
+                    <p class="card-text">A brief preview of the post content</p>
+                    <a href="post1.html" class="btn btn-primary">View More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <audio controls class="w-100">
+                      <source src="https://via.placeholder.com/podcast2.mp3" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio>
+                    <h5 class="card-title mt-3">Podcast 2</h5>
+                    <p class="card-text">A brief preview of the post content</p>
+                    <a href="post1.html" class="btn btn-primary">View More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <audio controls class="w-100">
+                      <source src="https://via.placeholder.com/podcast3.mp3" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio>
+                    <h5 class="card-title mt-3">Podcast 3</h5>
+                    <p class="card-text">A brief preview of the post content</p>
+                    <a href="post1.html" class="btn btn-primary">View More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+  </div>
+
+  <!-- Video Tab-->
+  <div class="tab-pane fade show" id="videos" role="tabpanel">
+    <section class="container mt-5 py-3">
+        <h2 class="text-center mb-4">Vlogs & Videos</h2>
+        <div class="row g-4">
+        <!-- Post 1 -->
+        <div class="col-md-4">
+            <a href="post1.html" class="text-decoration-none">
+            <div class="card">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+                <div class="card-body">
+                <h5 class="card-title">Post Title 1</h5>
+                <p class="card-text">A brief preview of the post content</p>
+                <a href="post1.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Post 2 -->
+        <div class="col-md-4">
+            <a href="post2.html" class="text-decoration-none">
+            <div class="card">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+                <div class="card-body">
+                <h5 class="card-title">Post Title 2</h5>
+                <p class="card-text">A brief preview of the post content</p>
+                <a href="post2.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Post 3 -->
+        <div class="col-md-4">
+            <a href="post3.html" class="text-decoration-none">
+            <div class="card">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+                <div class="card-body">
+                <h5 class="card-title">Post Title 3</h5>
+                <p class="card-text">A brief preview of the post content</p>
+                <a href="post3.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+            </a>
+        </div>
+        </div>
+    </section>
+  </div>
+
+  <!-- Podcast Tab-->
+  <div class="tab-pane fade show" id="podcast" role="tabpanel">
+   <section class="container mt-5 py-3">
+    <h2 class="text-center mb-4">Podcasts</h2>
+    <div class="row g-4">
+    <!-- Post 1 -->
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <audio controls class="w-100">
+            <source src="https://via.placeholder.com/podcast1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <h5 class="card-title mt-3">Podcast 1</h5>
+          <p class="card-text">A brief preview of the post content</p>
+          <a href="post1.html" class="btn btn-primary">View More</a>
+        </div>
       </div>
     </div>
+    <!-- Post 2 -->
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <audio controls class="w-100">
+            <source src="https://via.placeholder.com/podcast2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <h5 class="card-title mt-3">Podcast 2</h5>
+          <p class="card-text">A brief preview of the post content</p>
+          <a href="post1.html" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <!-- Post 3 -->
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <audio controls class="w-100">
+            <source src="https://via.placeholder.com/podcast3.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <h5 class="card-title mt-3">Podcast 3</h5>
+          <p class="card-text">A brief preview of the post content</p>
+          <a href="post1.html" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    </div>
+   </section>
+  </div>
+
+</div>
 
   <!-- Request Button and Footer -->
   <div class="text-center mt-5">
-    <a href="#" class="btn btn-primary">Request to Post</a>
+    <a href="create_blog" class="btn btn-primary">Create Post</a>
   </div>
 
   <footer class="bg-light text-center py-3 mt-5">
@@ -722,3 +733,47 @@
   </script>
 
 </html>
+
+
+<!-- Podcast Section Overview-->
+<!-- <section class="container mt-5 py-3">
+  <h2 class="text-center mb-4">Podcasts</h2>
+  <div class="row g-4">
+  <div class="col-md-4">
+      <a href="post1.html" class="text-decoration-none">
+      <div class="card">
+          <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 1">
+          <div class="card-body">
+          <h5 class="card-title">Post Title 1</h5>
+          <p class="card-text">A brief preview of the post content</p>
+          <a href="post1.html" class="btn btn-primary">View More</a>
+          </div>
+      </div>
+      </a>
+  </div>
+  <div class="col-md-4">
+      <a href="post2.html" class="text-decoration-none">
+      <div class="card">
+          <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 2">
+          <div class="card-body">
+          <h5 class="card-title">Post Title 2</h5>
+          <p class="card-text">A brief preview of the post content</p>
+          <a href="post2.html" class="btn btn-primary">View More</a>
+          </div>
+      </div>
+      </a>
+  </div>
+  <div class="col-md-4">
+      <a href="post3.html" class="text-decoration-none">
+      <div class="card">
+          <img src="{{ url_for('static', filename='Carousel.png') }}" class="card-img-top" alt="Post 3">
+          <div class="card-body">
+          <h5 class="card-title">Post Title 3</h5>
+          <p class="card-text">A brief preview of the post content</p>
+          <a href="post3.html" class="btn btn-primary">View More</a>
+          </div>
+      </div>
+      </a>
+  </div>
+  </div>
+</section> -->
