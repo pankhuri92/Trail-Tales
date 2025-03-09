@@ -20,6 +20,7 @@ db = SQLAlchemy(app)
 # Database Model
 class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(50), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     content = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.String(255), nullable=True)
@@ -32,8 +33,15 @@ def index():
 
 @app.route('/travel_stories')
 def travel_stories():
-    blogs = Blog.query.order_by(Blog.date_published.desc()).all()  # Fetch blogs ordered by date
-    return render_template('travel_stories.html', blogs=blogs)
+    category = request.args.get('category', 'all')  # Get category from query parameter
+    if category == 'all':
+        blogs = Blog.query.order_by(Blog.date_published.desc()).all()
+    else:
+        blogs = Blog.query.filter_by(category=category).order_by(Blog.date_published.desc()).all()
+    return render_template('travel_stories.html', blogs=blogs, category=category)
+
+    # blogs = Blog.query.order_by(Blog.date_published.desc()).all()  # Fetch blogs ordered by date
+    # return render_template('travel_stories.html', blogs=blogs)
 
 @app.route('/blog/<int:blog_id>')
 def view_blog(blog_id):
@@ -43,19 +51,20 @@ def view_blog(blog_id):
 @app.route('/create_blog', methods=['GET', 'POST'])
 def create_blog():
     if request.method == 'POST':
+        category = request.form.get('category')
         title = request.form.get('title')
         content = request.form.get('content')
         image = request.files.get('image')
 
         if title and content:
-            image_filename = None  # Default case if no image is uploaded
+            image_filename = None  
 
             if image:
                 image_filename = os.path.join(UPLOAD_FOLDER, image.filename)
                 image.save(image_filename)  # Save the image to the upload folder
 
             # Save to Database
-            new_blog = Blog(title=title, content=content, image_url="/"+image_filename)
+            new_blog = Blog(category=category, title=title, content=content if category == 'blog' else '', image_url="/"+image_filename if image_filename else None)
             db.session.add(new_blog)
             db.session.commit()
 
