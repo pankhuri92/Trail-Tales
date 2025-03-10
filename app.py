@@ -39,6 +39,10 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/faqs')
+def faqs():
+    return render_template('faqs.html')
+
 @app.route('/travel_stories')
 def travel_stories():
     category = request.args.get('category', 'all')  # Get category from query parameter
