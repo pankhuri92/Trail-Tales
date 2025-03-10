@@ -35,6 +35,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 @app.route('/travel_stories')
 def travel_stories():
     category = request.args.get('category', 'all')  # Get category from query parameter
