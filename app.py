@@ -25,7 +25,7 @@ cred = credentials.Certificate("we-trail-tales-firebase-adminsdk-fbsvc-b385a2e07
 firebase_admin.initialize_app(cred)
 
 # Firebase REST API Endpoint
-FIREBASE_WEB_API_KEY = ""  
+FIREBASE_WEB_API_KEY = "AIzaSyCFa5nlehx6skERCaS-M2xhjvHh87lNMmg"  
 FIREBASE_AUTH_URL = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={FIREBASE_WEB_API_KEY}"
 
 # Database Model
