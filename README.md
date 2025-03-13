@@ -84,6 +84,4 @@ Contributions are welcome! Follow these steps:
 
 This project is licensed under the MIT License.
 
-## Contact
 
-For queries and contributions, contact: **Erum Meraj** at [your-email@example.com].
