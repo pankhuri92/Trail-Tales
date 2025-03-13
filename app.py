@@ -153,6 +153,36 @@ def logout():
     flash("Logged out successfully.", "info")
     return redirect(url_for('index'))
 
+
+@app.route('/plan-your-trip')
+def plan_your_trip():
+    place = request.args.get('place', 'Bali')  # Default to Bali if no place is specified
+    destinations = {
+        "Bali": {
+            "headerImage": "bali_header.jpg",
+            "description": "Explore the tropical paradise of Bali, Indonesia. From breathtaking beaches to rich cultural heritage, Bali has something for every traveler!",
+            "cards": [
+                {"image": "bali1.jpg", "title": "Beautiful Beaches", "text": "Relax on stunning beaches like Kuta, Seminyak, and Nusa Dua with crystal-clear waters and golden sands."},
+                {"image": "bali2.jpg", "title": "Cultural Heritage", "text": "Visit iconic temples like Tanah Lot and Uluwatu to experience Bali's rich spiritual and architectural beauty."},
+                {"image": "bali3.jpg", "title": "Adventure & Nature", "text": "Hike up Mount Batur for a sunrise trek or explore the lush rice terraces of Ubud for an unforgettable adventure."}
+            ]
+        },
+        "Paris": {
+            "headerImage": "paris_header.jpg",
+            "description": "Discover the romantic charm of Paris, France. From the Eiffel Tower to world-class cuisine, Paris is a dream destination for travelers.",
+            "cards": [
+                {"image": "paris_eiffel.jpg", "title": "Eiffel Tower", "text": "Enjoy breathtaking views from the top of the Eiffel Tower, one of the most famous landmarks in the world."},
+                {"image": "paris_louvre.jpg", "title": "The Louvre", "text": "Visit the Louvre Museum to see the Mona Lisa and countless other artistic masterpieces."},
+                {"image": "paris_cuisine.jpg", "title": "French Cuisine", "text": "Indulge in delicious French pastries, cheese, and fine dining in the culinary capital of the world."}
+            ]
+        }
+    }
+
+    data = destinations.get(place, destinations["Bali"])
+    
+    return render_template('plan_trip.html', place=place, data=data)
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Ensure tables exist

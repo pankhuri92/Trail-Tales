@@ -183,31 +183,37 @@
 
           <!-- Right Side: Flowchart-->
           <div class="col-md-6 d-flex flex-column justify-content-center gap-4">
+            <a href="/plan-your-trip" class="text-decoration-none">
+              <div
+                class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover"
+                style="height: 150px; cursor: pointer"
+              >
+                <img
+                  src="{{ url_for('static', filename='Carousel.png') }}"
+                  alt="Icon"
+                  class="img-fluid h-100 me-3 rounded"
+                />
+                <h5 class="mb-0 text-dark">Plan your trip to Paris</h5>
+              </div>
+            </a>
+            <a href="/plan-your-trip" class="text-decoration-none">
+              <div
+                class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover"
+                style="height: 150px; cursor: pointer"
+              >
+                <img
+                  src="{{ url_for('static', filename='Carousel.png') }}"
+                  alt="Icon"
+                  class="img-fluid h-100 me-3 rounded"
+                />
+                <h5 class="mb-0 text-dark">Plan your trip to Paris</h5>
+              </div>
+            </a>
+
             <div
               class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover"
               style="height: 150px"
-            >
-              <img
-                src="{{ url_for('static', filename='Carousel.png') }}"
-                alt="Icon"
-                class="img-fluid h-100 me-3 rounded"
-              />
-              <h5 class="mb-0">Get Inspired</h5>
-            </div>
-            <div
-              class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover"
-              style="height: 150px"
-            >
-              <img
-                src="{{ url_for('static', filename='Carousel.png') }}"
-                alt="Icon"
-                class="img-fluid h-100 me-3 rounded"
-              />
-              <h5 class="mb-0">Plan Your Trip</h5>
-            </div>
-            <div
-              class="d-flex align-items-center p-3 bg-white shadow-sm rounded clickable-div transition-hover"
-              style="height: 150px"
+              href="/plan-your-trip"
             >
               <img
                 src="{{ url_for('static', filename='Carousel.png') }}"
