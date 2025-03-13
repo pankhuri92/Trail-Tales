@@ -21,7 +21,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the upload folder exists
 db = SQLAlchemy(app)
 
 # Firebase Admin SDK Initialization
-cred = credentials.Certificate("we-trail-tales-firebase-adminsdk-fbsvc-b385a2e079.json")  
+cred = credentials.Certificate("we-trail-tales-firebase-adminsdk-fbsvc-447f0e2adc.json")  
 firebase_admin.initialize_app(cred)
 
 # Firebase REST API Endpoint
