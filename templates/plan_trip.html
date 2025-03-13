@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plan Your Trip to {{ place }} - Trails Tales</title>
+    <title>Plan Your Trip to Bali - Trails Tales</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -44,7 +44,9 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="/faqs">FAQs</a></li>
             <li class="nav-item">
-              <a class="nav-link active" href="#trip">Plan Your Trip</a>
+              <a class="nav-link active" href="/plan-your-trip"
+                >Plan Your Trip</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#culture">Cultural Insights</a>
@@ -58,7 +60,7 @@
     <header
       id="header-section"
       class="bg-dark text-white text-center py-5"
-      style="background: url('{{ data.headerImage }}') center/cover no-repeat; position: relative; height: 400px;"
+      style="background: url('{{ url_for('static', filename='bali-header.jpg') }}') center/cover no-repeat; position: relative; height: 400px;"
     >
       <div
         style="
@@ -71,7 +73,7 @@
         "
       ></div>
       <div class="container position-relative" style="z-index: 1">
-        <h1 class="my-2">Plan Your Trip to {{ place }}</h1>
+        <h1 class="my-2">Plan Your Trip to Bali</h1>
       </div>
     </header>
 
@@ -93,6 +95,107 @@
           </div>
         </div>
         {% endfor %}
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <h2 class="text-center">Explore Bali Tour Packages</h2>
+      <p class="text-center">
+        Choose from our carefully curated Bali tour packages that suit your
+        budget and travel style.
+      </p>
+      <div class="row g-4">
+        <!-- Budget Package -->
+        <div class="col-md-4">
+          <div class="card transition-hover">
+            <img
+              src="{{ url_for('static', filename='bali4.jpg') }}"
+              class="card-img-top"
+              alt="Budget Package"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Budget Bali Getaway</h5>
+              <p class="card-text"><strong>$499</strong> per person</p>
+              <ul class="list-unstyled">
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i> 3 Nights,
+                  4 Days
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                  Budget-friendly stays
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i> Guided
+                  tour of Ubud & Kuta
+                </li>
+              </ul>
+              <a href="/package/budget" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standard Package -->
+        <div class="col-md-4">
+          <div class="card transition-hover">
+            <img
+              src="{{ url_for('static', filename='bali4.jpg') }}"
+              class="card-img-top"
+              alt="Standard Package"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Bali Adventure Package</h5>
+              <p class="card-text"><strong>$899</strong> per person</p>
+              <ul class="list-unstyled">
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i> 5 Nights,
+                  6 Days
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i> 3-star
+                  beach resort
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                  Snorkeling & temple tours
+                </li>
+              </ul>
+              <a href="/package/standard" class="btn btn-primary"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Luxury Package -->
+        <div class="col-md-4">
+          <div class="card transition-hover">
+            <img
+              src="{{ url_for('static', filename='bali4.jpg') }}"
+              class="card-img-top"
+              alt="Luxury Package"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Luxury Bali Retreat</h5>
+              <p class="card-text"><strong>$1,999</strong> per person</p>
+              <ul class="list-unstyled">
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i> 7 Nights,
+                  8 Days
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i> 5-star
+                  private villa
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success"></i> Private
+                  yacht & spa
+                </li>
+              </ul>
+              <a href="/package/luxury" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
