@@ -54,6 +54,11 @@ def contact():
 def faqs():
     return render_template('faqs.html')
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+
 @app.route('/travel_stories')
 def travel_stories():
     category = request.args.get('category', 'all')
