@@ -22,6 +22,7 @@ db = SQLAlchemy(app)
 
 # Firebase Admin SDK Initialization
 cred = credentials.Certificate("we-trail-tales-firebase-adminsdk-fbsvc-270e521c2e.json")  
+# cred = credentials.Certificate("we-trail-tales-firebase-adminsdk-fbsvc-8c32fc54f1.json")  
 firebase_admin.initialize_app(cred)
 
 # Firebase REST API Endpoint
@@ -93,7 +94,7 @@ def create_blog():
         new_blog = Blog(
             category=category, 
             title=title, 
-            content=content if category == 'blog' else '', 
+            content=content if category == 'Blog' else '', 
             image_url="/" + image_filename if image_filename else None
         )
         db.session.add(new_blog)
