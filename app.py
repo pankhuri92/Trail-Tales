@@ -22,6 +22,7 @@ db = SQLAlchemy(app)
 
 # Firebase Admin SDK Initialization
 cred = credentials.Certificate("we-trail-tales-firebase-adminsdk-fbsvc-270e521c2e.json")  
+
 # cred = credentials.Certificate("we-trail-tales-firebase-adminsdk-fbsvc-8c32fc54f1.json")  
 firebase_admin.initialize_app(cred)
 
@@ -36,6 +37,8 @@ class Blog(db.Model):
     title = db.Column(db.String(255), nullable=False)
     content = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.String(255), nullable=True)
+    video_url = db.Column(db.String(255), nullable=True)  # Added
+    audio_url = db.Column(db.String(255), nullable=True)  # Added
     date_published = db.Column(db.Date, nullable=False, default=datetime.date.today)
 
 # Routes
@@ -85,18 +88,34 @@ def create_blog():
         title = request.form.get('title')
         content = request.form.get('content')
         image = request.files.get('image')
+        video = request.files.get('video')
+        audio = request.files.get('audio')
 
-        image_filename = None  
+        image_filename = None
+        video_filename = None
+        audio_filename = None
+
         if image:
             image_filename = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
             image.save(image_filename)
 
+        if video:
+            video_filename = os.path.join(app.config['UPLOAD_FOLDER'], video.filename)
+            video.save(video_filename)
+
+        if audio:
+            audio_filename = os.path.join(app.config['UPLOAD_FOLDER'], audio.filename)
+            audio.save(audio_filename)
+
         new_blog = Blog(
-            category=category, 
-            title=title, 
-            content=content if category == 'Blog' else '', 
-            image_url="/" + image_filename if image_filename else None
+            category=category,
+            title=title,
+            content=content if category == 'blog' else '',
+            image_url="/" + image_filename if image_filename else None,
+            video_url="/" + video_filename if video_filename else None,
+            audio_url="/" + audio_filename if audio_filename else None
         )
+
         db.session.add(new_blog)
         db.session.commit()
         flash("Blog created successfully!", "success")
