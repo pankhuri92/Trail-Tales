@@ -54,10 +54,12 @@
               <a class="nav-link" href="/faqs">FAQs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('travel_stories') }}">Travel Stories</a>
+              <a class="nav-link active" href="{{ url_for('travel_stories') }}"
+                >Travel Stories</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#trip">Plan Your Trip</a>
+              <a class="nav-link" href="/plan-your-trip">Plan Your Trip</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#culture">Cultural Insights</a>
@@ -77,7 +79,8 @@
         background-size: cover;
         background-position: center;
         position: relative;
-      ">
+      "
+    >
       <div
         style="
           background: rgba(0, 0, 0, 0.5);
@@ -110,14 +113,16 @@
             <form
               action="{{ url_for('create_blog') }}"
               method="POST"
-              enctype="multipart/form-data">
+              enctype="multipart/form-data"
+            >
               <div class="mb-3">
                 <label for="category" class="form-label">Select Category</label>
                 <select
                   class="form-select"
                   id="category"
                   name="category"
-                  required>
+                  required
+                >
                   <option value="Blog">Blog</option>
                   <option value="Photo">Photo</option>
                   <option value="Video">Video</option>
@@ -133,7 +138,8 @@
                   id="title"
                   name="title"
                   placeholder="Enter your post title"
-                  required/>
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="image" class="form-label">Upload Image</label>
@@ -165,7 +171,9 @@
 
     <!-- Back to Travel Stories Button -->
     <div class="text-center my-4">
-      <a href="{{ url_for('travel_stories') }}" class="btn btn-secondary">Back to Travel Stories</a>
+      <a href="{{ url_for('travel_stories') }}" class="btn btn-secondary"
+        >Back to Travel Stories</a
+      >
     </div>
 
     <!-- Footer -->
