@@ -1,8 +1,8 @@
-# We Trail Tales
+# Trail Tales
 
 ## Overview
 
-We Trail Tales is a comprehensive travel platform that enables users to explore diverse cultures, plan trips, and share their travel experiences through blogs, photos, videos, and podcasts. The platform also provides cultural insights, a chatbot, and a translation tool to enhance user engagement. Future enhancements include a leaderboard system where users can earn points for their contributions and redeem them for trip discounts.
+Trail Tales is a comprehensive travel platform that enables users to explore diverse cultures, plan trips, and share their travel experiences through blogs, photos, videos, and podcasts. The platform also provides cultural insights, a chatbot, and a translation tool to enhance user engagement. Future enhancements include a leaderboard system where users can earn points for their contributions and redeem them for trip discounts.
 
 ## Features
 
